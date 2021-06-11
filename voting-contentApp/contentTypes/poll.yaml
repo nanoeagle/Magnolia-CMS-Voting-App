@@ -1,0 +1,27 @@
+datasource:
+  workspace: polls
+  autoCreate: true
+
+model:
+  nodeType: poll
+  properties:
+    description:
+      required: true
+    imageLink:
+      type: asset
+    expiredDate:
+      type: Date
+      required: true
+    optionSet:
+      type: optionData
+      multiple: true
+  
+  subModels:
+    optionData:
+      properties:
+        question:
+          required: true
+        option:
+          multiple: true
+        otherOption:
+          type: Boolean
