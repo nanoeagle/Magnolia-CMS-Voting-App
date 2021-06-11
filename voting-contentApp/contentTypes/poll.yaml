@@ -12,16 +12,13 @@ model:
     expiredDate:
       type: Date
       required: true
-    optionSet:
-      type: optionData
+    question:
+      required: true
+    obtion1:
+      required: true
+    obtion2:
+      required: true
+    optionX:
       multiple: true
-  
-  subModels:
-    optionData:
-      properties:
-        question:
-          required: true
-        option:
-          multiple: true
-        otherOption:
-          type: Boolean
+    userOption:
+      type: Boolean
