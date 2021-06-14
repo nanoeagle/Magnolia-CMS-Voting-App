@@ -9,6 +9,7 @@ model:
       required: true
     imageLink:
       type: asset
+      required: true
     expiryDate:
       type: Date
       required: true
@@ -20,5 +21,6 @@ model:
       required: true
     optionX:
       multiple: true
+      required: true
     allowOptionOfVoter:
       type: Boolean
