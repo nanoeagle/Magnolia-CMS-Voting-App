@@ -1,0 +1,37 @@
+icon: icon-segments-app
+class: info.magnolia.ui.api.app.registry.ConfiguredAppDescriptor
+appClass: info.magnolia.ui.framework.app.BaseApp
+
+subApps:
+  browser:
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    contentConnector:
+      nodeTypes:
+        - poll
+      workspace: polls
+    imageProvider:
+      class: info.magnolia.ui.imageprovider.definition.ConfiguredImageProviderDefinition
+      imageProviderClass: info.magnolia.ui.imageprovider.DefaultImageProvider
+    workbench:
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &defaultColumns
+            - name: jcrName
+              propertyName: jcrName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: expdate
+              label: Expiration Date
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: expiryDate
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: moddate
+              label: Modification Date
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+        - name: list
+          class: info.magnolia.ui.workbench.list.ListPresenterDefinition
+          columns: *defaultColumns
