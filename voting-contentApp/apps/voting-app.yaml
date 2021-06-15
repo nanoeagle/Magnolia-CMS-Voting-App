@@ -1,0 +1,31 @@
+!content-type:poll
+name: voting-app
+label: Voting
+icon: icon-segments-app
+
+subApps:
+  browser:
+    workbench:
+      contentViews: !override
+        - name: tree !override
+          multiSelect: true
+          $type: treeView
+          dropConstraint:
+            $type: jcrDropConstraint
+            primaryNodeType: mgnl:composition
+          columns: &columns
+            - name: jcrName
+              label: Poll
+              $type: jcrTitleColumn
+            - name: startdate
+              $type: dateColumn
+            - name: expdate
+              $type: dateColumn
+              nodeTypeToIcon:
+                mgnl:folder: icon-folder
+            - name: pollstatus
+              filterComponent:
+                $type: comboBoxField
+            - name: mgnl:lastModified
+              label: Modification Date
+              $type: dateColumn
