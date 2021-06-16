@@ -8,37 +8,21 @@ subApps:
     workbench:
       contentViews: !override
         - name: tree !override
+          multiSelect: true
           $type: treeView
           dropConstraint:
             $type: jcrDropConstraint
-            primaryNodeType: poll
-          multiSelect: true
-
+            primaryNodeType: mgnl:composition
           columns:
             - name: jcrName
               $type: jcrTitleColumn
-              expandRatio: 1
-              nodeTypeToIcon:
-                mgnl:folder: icon-folder
-
+            - name: startDate
+              $type: dateColumn
             - name: expiryDate
               $type: dateColumn
-              expandRatio: 1
-
             - name: pollStatus
               filterComponent:
                 $type: comboBoxField
-              expandRatio: 1
-
             - name: mgnl:lastModified
               label: Modification Date
               $type: dateColumn
-              expandRatio: 1
-  
-  detail:
-    form:
-      properties:
-        - name: description
-          rows: 3
-        - name: expiryDate
-          time: true
