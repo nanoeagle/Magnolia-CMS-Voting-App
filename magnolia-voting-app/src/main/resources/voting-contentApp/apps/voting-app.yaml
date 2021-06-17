@@ -108,6 +108,8 @@ subApps:
       properties:
         - name: description
           rows: 3
+        - name: startDate
+          time: true
         - name: expiryDate
           time: true
         - name: startDate
