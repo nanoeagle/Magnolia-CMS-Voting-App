@@ -10,6 +10,9 @@ model:
     imageLink:
       type: asset
       required: true
+    startDate:
+      type: Date
+      required: true
     expiryDate:
       type: Date
       required: true
