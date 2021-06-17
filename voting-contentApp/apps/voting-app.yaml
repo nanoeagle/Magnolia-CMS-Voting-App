@@ -5,6 +5,69 @@ icon: icon-segments-app
 
 subApps:
   browser:
+    actions: !override
+      addPoll:
+        appName: voting-app
+        $type: openDetailSubappAction
+        icon: icon-add-item
+        subAppName: detail
+        viewType: add
+        availability:
+          root: true
+          nodes: false
+      editPoll:
+        appName: voting-app
+        $type: openDetailSubappAction
+        icon: icon-edit
+        subAppName: detail
+        viewType: edit
+        availability:
+          writePermissionRequired: true
+          rules:
+            notDeleted: &notDeleted
+              $type: jcrIsDeletedRule
+              negate: true
+      deletePoll:
+        $type: markAsDeletedAction
+      confirmDeletePoll:
+        $type: confirmationAction
+        icon: icon-delete
+        successActionName: deletePoll
+        availability:
+          multiple: true
+          writePermissionRequired: true
+          rules:
+            notDeleted: *notDeleted
+      preview:
+        icon: icon-preview-app
+        availability:
+          rules:
+            notDeleted: *notDeleted
+      copyLink:
+        icon: icon-copy
+        availability:
+          rules:
+            notDeleted: *notDeleted
+      seeReport:
+        availability:
+          rules:
+            notDeleted: *notDeleted
+      actionbar:
+        sections: !override
+          - name: root
+            groups:
+              - name: crudAction
+                items:
+                  - name: addPoll
+                  - name: editPoll
+                  - name: confirmDeletePoll
+              - name: otherAction
+                items:
+                  - name: preview
+                  - name: copyLink
+              - name: reportAction
+                items:
+                  - name: seeReport
     workbench:
       contentViews: !override
         - name: tree !override
