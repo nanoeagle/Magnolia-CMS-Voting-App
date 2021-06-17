@@ -21,6 +21,10 @@ subApps:
               nodeTypeToIcon:
                 mgnl:folder: icon-folder
 
+            - name: startDate
+              $type: dateColumn
+              expandRatio: 1
+
             - name: expiryDate
               $type: dateColumn
               expandRatio: 1
