@@ -52,22 +52,22 @@ subApps:
         availability:
           rules:
             notDeleted: *notDeleted
-      actionbar:
-        sections: !override
-          - name: root
-            groups:
-              - name: crudAction
-                items:
-                  - name: addPoll
-                  - name: editPoll
-                  - name: confirmDeletePoll
-              - name: otherAction
-                items:
-                  - name: preview
-                  - name: copyLink
-              - name: reportAction
-                items:
-                  - name: seeReport
+    actionbar:
+      sections: !override
+        - name: root
+          groups:
+            - name: crudAction
+              items:
+                - name: addPoll
+                - name: editPoll
+                - name: confirmDeletePoll
+            - name: otherAction
+              items:
+                - name: preview
+                - name: copyLink
+            - name: reportAction
+              items:
+                - name: seeReport
     workbench:
       contentViews: !override
         - name: tree !override
