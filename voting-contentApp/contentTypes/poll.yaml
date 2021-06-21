@@ -18,10 +18,6 @@ model:
       required: true
     question:
       required: true
-    option1:
-      required: true
-    option2:
-      required: true
     optionX:
       multiple: true
       required: true

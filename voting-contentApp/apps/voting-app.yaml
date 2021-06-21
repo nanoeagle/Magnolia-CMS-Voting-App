@@ -49,6 +49,7 @@ subApps:
           rules:
             notDeleted: *notDeleted
       seeReport:
+        icon: icon-info
         availability:
           rules:
             notDeleted: *notDeleted
@@ -80,7 +81,7 @@ subApps:
           columns:
             - name: jcrName
               $type: jcrTitleColumn
-              expandRatio: 1
+              expandRatio: 2
               nodeTypeToIcon:
                 mgnl:folder: icon-folder
 
@@ -108,4 +109,6 @@ subApps:
         - name: description
           rows: 3
         - name: expiryDate
+          time: true
+        - name: startDate
           time: true
