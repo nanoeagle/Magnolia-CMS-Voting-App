@@ -24,6 +24,8 @@ subApps:
         availability:
           writePermissionRequired: true
           rules:
+            pollEditable:
+              $type: jcrIsPollEditableRule
             notDeleted: &notDeleted
               $type: jcrIsDeletedRule
               negate: true
@@ -54,6 +56,7 @@ subApps:
           rules:
             notDeleted: *notDeleted
     actionbar:
+      defaultAction: editPoll
       sections: !override
         - name: root
           groups:
