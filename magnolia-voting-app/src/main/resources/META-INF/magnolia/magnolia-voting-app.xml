@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module SYSTEM "module.dtd" >
 <module>
-  <name>voting-maven-module</name>
+  <name>voting-app-maven-module</name>
   <displayName>${project.name}</displayName>
   <description>${project.description}</description>
   <version>${project.version}</version>
-
-  <dependencies>
-    <dependency>
-      <name>core</name>
-      <version>*</version>
-    </dependency>
-  </dependencies>
 </module>
