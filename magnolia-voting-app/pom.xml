@@ -18,6 +18,11 @@
       <artifactId>magnolia-ui-framework</artifactId>
       <version>${magnoliaVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>info.magnolia.ui</groupId>
+      <artifactId>magnolia-ui-framework-jcr</artifactId>
+      <version>${magnoliaVersion}</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module SYSTEM "module.dtd" >
 <module>
-  <name>voting-app-maven-module</name>
+  <name>magnolia-voting-app</name>
   <displayName>${project.name}</displayName>
   <description>${project.description}</description>
   <version>${project.version}</version>
