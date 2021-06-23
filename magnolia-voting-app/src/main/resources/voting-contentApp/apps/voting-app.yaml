@@ -97,6 +97,7 @@ subApps:
               filterComponent:
                 $type: comboBoxField
               expandRatio: 1
+              valueProvider: com.example.votingapp.valueprovider.PollStatusValueProvider
 
             - name: mgnl:lastModified
               label: Modification Date
@@ -111,6 +112,4 @@ subApps:
         - name: startDate
           time: true
         - name: expiryDate
-          time: true
-        - name: startDate
           time: true

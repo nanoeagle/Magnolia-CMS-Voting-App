@@ -60,6 +60,7 @@ bin/
 
 # vscode
 .vscode/
+.factorypath
 
 # intellij / android studio
 *.iml
