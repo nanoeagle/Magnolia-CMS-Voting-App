@@ -116,7 +116,6 @@ subApps:
             - name: reportAction
               items:
                 - name: seeReport
-
   detail:
     class: info.magnolia.ui.contentapp.detail.DetailDescriptor
     itemProvider:

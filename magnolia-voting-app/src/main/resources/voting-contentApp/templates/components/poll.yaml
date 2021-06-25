@@ -1,0 +1,3 @@
+title: Poll
+renderType: freemarker
+templateScript: /voting-contentApp/templates/components/poll.ftl

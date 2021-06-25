@@ -1,0 +1,73 @@
+.parent {
+    font-family: system-ui;
+}
+.banner {
+    background-color: #e4e4e4;
+    width: 800px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.banner_image {
+    float: left;
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    padding-right: 30px;
+}
+.banner_info {
+    padding: 20px;
+    padding-left: 0;
+}
+.banner_title {
+    color: #85c40a;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+}
+.poll_description {
+    font-size: 16px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.poll_main {
+    font-size: 16px;
+    margin: auto;
+    width: 800px;
+}
+.voter_info {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 795px;
+    height: 30px;
+}
+.selection {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.poll_answer_set {
+    padding-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.poll_answer {
+    margin: auto;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+.poll_answer_text {
+    height: 30px;
+    width: 690px;
+    margin-left: 10px;
+}
+.submit_btn {
+    width: 150px;
+    height: 25px;
+}
+.page_notification {
+    margin-top: 20%;
+    font-weight: lighter;
+    text-align: center;
+}

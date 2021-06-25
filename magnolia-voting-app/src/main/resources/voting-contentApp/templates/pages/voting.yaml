@@ -1,0 +1,11 @@
+title: Voting
+renderType: freemarker
+dialog: voting-contentApp:pages/voting
+templateScript: /voting-contentApp/templates/pages/voting.ftl
+
+areas:
+  main:
+    maxComponents: 1
+    availableComponents:
+      poll:
+        id: voting-contentApp:components/poll
