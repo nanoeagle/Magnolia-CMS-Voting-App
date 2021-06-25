@@ -1,7 +1,7 @@
 package com.example.votingapp.enums;
 
 public enum PollStatus {
-    TO_DO("To-do"), ON_GOING("On-going"), DONE("Done");
+    TO_DO("To-do"), ON_GOING("On-going"), DONE("Done"), DELETED("Deleted");
 
     private String value;
 
@@ -13,6 +13,7 @@ public enum PollStatus {
         return value;
     }
 
+    // For showing status' value instead of the enum label.
     @Override
     public String toString() {
         return value;

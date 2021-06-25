@@ -18,22 +18,25 @@ public class PollUtils {
         Calendar today = Calendar.getInstance();
 
         try {
-            Calendar startDate = source.getProperty("startDate").getValue().getDate();
-            Calendar expiryDate = source.getProperty("expiryDate").getValue().getDate();
-            
-            int todayStDateCompVal = today.compareTo(startDate);
-            int todayExDateCompVal = today.compareTo(expiryDate);
+            if (source.hasProperty("startDate") && source.hasProperty("expiryDate")) {
+                Calendar startDate = source.getProperty("startDate").getValue().getDate();
+                Calendar expiryDate = source.getProperty("expiryDate").getValue().getDate();
+                
+                int todayStDateCompVal = today.compareTo(startDate);
+                int todayExDateCompVal = today.compareTo(expiryDate);
 
-            if (todayStDateCompVal < 0) {
-                return PollStatus.TO_DO;
+                if (todayStDateCompVal < 0) {
+                    return PollStatus.TO_DO;
+                }
+                if (todayStDateCompVal >= 0 && todayExDateCompVal < 0) {
+                    return PollStatus.ON_GOING;
+                } 
+                return PollStatus.DONE;
             }
-            if (todayStDateCompVal >= 0 && todayExDateCompVal < 0) {
-                return PollStatus.ON_GOING;
-            } 
-            return PollStatus.DONE;
+            return PollStatus.DELETED;
 
         } catch (RepositoryException e) {
-            LOGGER.error("RepositoryException found.", e);
+            LOGGER.error("RepositoryException found, cannot get the status of the poll", e);
             throw new RuntimeRepositoryException(e);
         }
     }
