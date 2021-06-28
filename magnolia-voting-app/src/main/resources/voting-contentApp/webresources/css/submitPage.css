@@ -1,0 +1,47 @@
+.parent {
+    font-family: system-ui;
+    width: 800px;
+    margin: auto;
+}
+
+.banner {
+    background-color: #e4e4e4;
+    width: 800px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.banner_image {
+    float: left;
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    padding-right: 30px;
+}
+
+.banner_info {
+    padding: 20px;
+    padding-left: 0;
+}
+
+.banner_title {
+    color: #85c40a;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+}
+
+.poll_description {
+    font-size: 16px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.thanks_message {
+    text-align: center;
+    font-size: 22px;
+    padding-top: 50px;
+}

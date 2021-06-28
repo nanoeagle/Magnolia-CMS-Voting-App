@@ -1,0 +1,3 @@
+title: Poll Submitted
+renderType: freemarker
+templateScript: voting-contentApp/templates/components/pollSubmitted.ftl
