@@ -1,11 +1,52 @@
-!content-type:poll
 name: voting-app
 label: Voting
 icon: icon-segments-app
+class: info.magnolia.ui.contentapp.configuration.ContentAppDescriptor
+appClass: info.magnolia.ui.framework.app.BaseApp
+
+datasource: &datasource
+  $type: jcrDatasource
+  workspace: polls
 
 subApps:
   browser:
-    actions: !override
+    class: info.magnolia.ui.contentapp.configuration.BrowserDescriptor
+    workbench:
+      contentViews:
+        - name: tree
+          $type: treeView
+          dropConstraint:
+            $type: jcrDropConstraint
+            primaryNodeType: poll
+          multiSelect: true
+
+          columns:
+            - name: jcrName
+              $type: jcrTitleColumn
+              expandRatio: 3
+              nodeTypeToIcon:
+                mgnl:folder: icon-folder
+
+            - name: startDate
+              $type: dateColumn
+              expandRatio: 2
+
+            - name: expiryDate
+              $type: dateColumn
+              expandRatio: 2
+
+            - name: pollStatus
+              filterComponent:
+                $type: comboBoxField
+              expandRatio: 1
+              valueProvider: com.example.votingapp.valueprovider.PollStatusValueProvider
+
+            - name: mgnl:lastModified
+              label: Modification Date
+              $type: dateColumn
+              expandRatio: 2
+    
+    actions:
       addPoll:
         appName: voting-app
         $type: openDetailSubappAction
@@ -55,10 +96,13 @@ subApps:
         availability:
           rules:
             notDeleted: *notDeleted
+
     actionbar:
       defaultAction: editPoll
-      sections: !override
+      sections:
         - name: root
+          availability:
+            root: true
           groups:
             - name: crudAction
               items:
@@ -72,47 +116,54 @@ subApps:
             - name: reportAction
               items:
                 - name: seeReport
-    workbench:
-      contentViews: !override
-        - name: tree !override
-          $type: treeView
-          dropConstraint:
-            $type: jcrDropConstraint
-            primaryNodeType: poll
-          multiSelect: true
 
-          columns:
-            - name: jcrName
-              $type: jcrTitleColumn
-              expandRatio: 2
-              nodeTypeToIcon:
-                mgnl:folder: icon-folder
-
-            - name: startDate
-              $type: dateColumn
-              expandRatio: 1
-
-            - name: expiryDate
-              $type: dateColumn
-              expandRatio: 1
-
-            - name: pollStatus
-              filterComponent:
-                $type: comboBoxField
-              expandRatio: 1
-              valueProvider: com.example.votingapp.valueprovider.PollStatusValueProvider
-
-            - name: mgnl:lastModified
-              label: Modification Date
-              $type: dateColumn
-              expandRatio: 1
-  
   detail:
+    class: info.magnolia.ui.contentapp.detail.DetailDescriptor
+    itemProvider:
+      $type: jcrNodeFromLocationProvider
+    datasource:
+      <<: *datasource
+      describeByProperty: jcrName
     form:
       properties:
-        - name: description
+        jcrName:
+          $type: textField
+          required: true
+          validators:
+            - $type: nodeNameValidator
+        description:
+          $type: textField
+          required: true
           rows: 3
-        - name: startDate
+        imageLink:
+          $type: damLinkField
+          required: true
+        startDate:
+          $type: dateField
+          required: true
           time: true
-        - name: expiryDate
+        expiryDate:
+          $type: dateField
+          required: true
           time: true
+        questions:
+          i18n: false
+          $type: jcrMultiField
+          required: true
+          field:
+            $type: compositeField
+            properties:
+              content:
+                $type: textField
+                required: true
+              answers:
+                $type: jcrMultiField
+                required: true
+                field:
+                  $type: compositeField
+                  properties:
+                    answerVal:
+                      $type: textField
+                      required: true
+              allowOptionOfVoter:
+                $type: checkBoxField

@@ -16,10 +16,40 @@ model:
     expiryDate:
       type: Date
       required: true
-    question:
+    questions:
+      type: question
       required: true
-    optionX:
       multiple: true
-      required: true
-    allowOptionOfVoter:
-      type: Boolean
+  
+  subModels:
+    question:
+      nodeType: pollQuestion
+      properties:
+        content:
+          required: true
+        answers:
+          type: answer
+          required: true
+          multiple: true
+        allowOptionOfVoter:
+          type: Boolean
+        other:
+          type: answer
+          multiple: true
+        
+    answer:
+      nodeType: pollAnswer
+      properties:
+        answerVal:
+          required: true
+        voters:
+          type: voter
+          multiple: true
+    
+    voter:
+      nodeType: pollVoter
+      properties:
+        fullName: 
+          required: true
+        email:
+          type: String
