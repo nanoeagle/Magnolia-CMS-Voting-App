@@ -44,7 +44,7 @@
                                 <hr style="height: 1.2px; background-color: black; border: none">
 
 [#--                                [#assign votersNo = cmsfn.children(answers.voters).count()!]--]
-                                ${votersNo}
+[#--                                ${votersNo}--]
                                 [#if answers?size > 0]
                                     [#list answers]
                                         <table>
