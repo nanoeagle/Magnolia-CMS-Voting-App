@@ -33,15 +33,14 @@ model:
           multiple: true
         allowOptionOfVoter:
           type: Boolean
-        other:
-          type: answer
-          multiple: true
         
     answer:
       nodeType: pollAnswer
       properties:
         answerVal:
           required: true
+        category:
+          type: String
         voters:
           type: voter
           multiple: true

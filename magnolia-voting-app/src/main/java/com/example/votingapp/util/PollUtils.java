@@ -14,13 +14,13 @@ public class PollUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PollUtils.class);
 
-    public static Enum<PollStatus> pickPollStatus(Node source) throws RuntimeException {
+    public static Enum<PollStatus> pickPollStatus(Node targetPoll) throws RuntimeException {
         Calendar today = Calendar.getInstance();
 
         try {
-            if (source.hasProperty("startDate") && source.hasProperty("expiryDate")) {
-                Calendar startDate = source.getProperty("startDate").getValue().getDate();
-                Calendar expiryDate = source.getProperty("expiryDate").getValue().getDate();
+            if (targetPoll.hasProperty("startDate") && targetPoll.hasProperty("expiryDate")) {
+                Calendar startDate = targetPoll.getProperty("startDate").getDate();
+                Calendar expiryDate = targetPoll.getProperty("expiryDate").getDate();
                 
                 int todayStDateCompVal = today.compareTo(startDate);
                 int todayExDateCompVal = today.compareTo(expiryDate);
