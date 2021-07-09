@@ -26,7 +26,7 @@ public class PollReportTemplatingFunctions {
 
     Map<String, Integer> contentNodeMap = new HashMap<>();
     Map<String, Integer> answerNodeMap = new HashMap<>();
-    Map root = new HashMap<>();
+    Map<Integer, Map<String, Integer>> root;
 
     List<Node> questionList;
     List<Node> answerList;
@@ -72,7 +72,7 @@ public class PollReportTemplatingFunctions {
     }
 
     private void countQuestionAndAnswerNumberByIndex() throws RepositoryException {
-        root = new HashMap();
+        root = new HashMap<>();
         answerNodeMap = new HashMap<>();
         for (int k = 0; k < questionList.size(); k++) {
             int countOtherVote = 0;
@@ -167,7 +167,7 @@ public class PollReportTemplatingFunctions {
         return node.getProperty("answerVal").getValue().getString();
     }
 
-    public Map getNumberOfVoteForEachAnswer() {
+    public Map<Integer, Map<String, Integer>> getNumberOfVoteForEachAnswer() {
         return root;
     }
 }
