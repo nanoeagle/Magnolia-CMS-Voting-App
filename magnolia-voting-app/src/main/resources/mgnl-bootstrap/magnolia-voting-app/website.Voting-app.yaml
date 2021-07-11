@@ -1,0 +1,23 @@
+'Voting-app':
+  'jcr:primaryType': 'mgnl:page'
+  'jcr:uuid': 'd6b13342-4463-4b44-a441-dbdc804773e9'
+  'mgnl:created': 2021-07-07T13:22:40.537+07:00
+  'mgnl:createdBy': 'superuser'
+  'mgnl:lastModified': 2021-07-07T13:22:46.309+07:00
+  'mgnl:lastModifiedBy': 'superuser'
+  'mgnl:template': 'voting-contentApp:pages/pollReport'
+  'main':
+    'jcr:primaryType': 'mgnl:area'
+    'jcr:uuid': '8f74a1bb-d204-475f-a9be-0654b723bb7e'
+    'mgnl:created': 2021-07-07T13:22:43.955+07:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2021-07-07T13:22:46.309+07:00
+    'mgnl:lastModifiedBy': 'superuser'
+    '0':
+      'jcr:primaryType': 'mgnl:component'
+      'jcr:uuid': '43b1518d-f52e-494b-81e9-b267ae5c4382'
+      'mgnl:created': 2021-07-07T13:22:46.310+07:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2021-07-07T13:22:46.310+07:00
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'voting-contentApp:components/pollReport'

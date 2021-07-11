@@ -1,0 +1,3 @@
+title: Poll Report Templating Function
+renderType: freemarker
+templateScript: voting-contentApp/templates/components/pollReport.ftl

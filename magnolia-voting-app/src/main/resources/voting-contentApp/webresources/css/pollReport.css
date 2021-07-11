@@ -1,0 +1,62 @@
+hr {
+    background-color: black;
+}
+
+.total_vote {
+    text-transform: uppercase;
+}
+
+.total_vote .total_vote_number {
+    font-size: 40px;
+    padding-left: 50px;
+}
+
+table {
+    border: none;
+    width: 100%;
+    margin-left: 0;
+}
+
+.header_table {
+    margin-top: 30px;
+}
+
+ul#list_vote_numbers li {
+    display: inline;
+    padding-left: 20px;
+    padding-right: 10px;
+    line-height: 40px;
+}
+
+.vote_detail_number {
+    font-size: 30px;
+}
+
+.vote_detail_option {
+    font-size: 18px;
+}
+
+.detail_table {
+    margin-bottom: 100px;
+}
+
+table.detail_vote_table td {
+    width: 20%;
+}
+
+table.detail_vote_table tr {
+    line-height: 40px;
+}
+
+.detail_vote_table .email_column {
+    width: 35%;
+}
+
+.detail_vote_table .other_column {
+    width: 15%;
+}
+
+.no_submit_message {
+    text-align: center;
+    font-size: 25px;
+}

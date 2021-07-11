@@ -1,0 +1,10 @@
+title: Poll Report Template
+renderType: freemarker
+templateScript: voting-contentApp/templates/pages/pollReport.ftl
+
+areas:
+  main:
+    type: single
+    availableComponents:
+      pollData:
+        id: voting-contentApp:components/pollReport
