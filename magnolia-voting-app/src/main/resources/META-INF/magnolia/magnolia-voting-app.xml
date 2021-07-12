@@ -14,4 +14,11 @@
       <scope>singleton</scope>
     </component>
   </components>
+
+  <dependencies>
+    <dependency>
+      <name>rendering</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+  </dependencies>
 </module>
