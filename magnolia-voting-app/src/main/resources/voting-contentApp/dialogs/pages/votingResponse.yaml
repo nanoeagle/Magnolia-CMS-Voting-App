@@ -1,0 +1,8 @@
+label: Poll-submission Response
+ 
+form:
+  properties:
+    title:
+      $type: textField
+      label: Page Title
+      description: Define the Page's title.

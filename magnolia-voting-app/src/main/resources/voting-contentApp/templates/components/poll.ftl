@@ -52,9 +52,9 @@
               [#if .now < targetPoll.startDate]
                 [#assign action = ""]
               [#else]
-                [#assign action = "submit-poll"]
+                [#assign action = "voting/submit-poll"]
               [/#if]
-              <form class="poll_main" action=${action} method="post">
+              <form class="poll_main" action="${action}" method="post">
                 <input type="hidden" name="pollId" value="${targetPoll.@id}">
                 <input type="hidden" name="pollSelector" value="${pollSelector}">
 
@@ -79,9 +79,9 @@
                             [#--  Only the predefined answers are showed.  --]
                             [#if !answer.category?has_content]
                               <input class="poll_answer" type="radio" required
-                              name="voterChoice_${question.@id}"
-                              onclick="enableDisableTextField('otherRadioBtn_${question.@id}', 'answerTextField_${question.@id}')"
-                              value="predifined,${answer.@id}">${answer.answerVal!"No answer value."}<br>  
+                                name="voterChoice_${question.@id}"
+                                onclick="enableDisableTextField('otherRadioBtn_${question.@id}', 'answerTextField_${question.@id}')"
+                                value="predifined,${answer.@id}">${answer.answerVal!"No answer value."}<br>  
                             [/#if]
                           [/#items]
 

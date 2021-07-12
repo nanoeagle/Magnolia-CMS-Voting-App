@@ -1,0 +1,3 @@
+'BypassForVoting':
+  'class': 'info.magnolia.voting.voters.URIStartsWithVoter'
+  'pattern': '/voting'
