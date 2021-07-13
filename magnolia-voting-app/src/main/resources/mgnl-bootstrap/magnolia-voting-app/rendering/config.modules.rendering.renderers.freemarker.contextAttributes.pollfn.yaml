@@ -1,0 +1,3 @@
+'pollfn':
+  'componentClass': 'com.example.votingapp.templatingfunctions.PollReportTemplatingFunctions'
+  'name': 'pollfn'

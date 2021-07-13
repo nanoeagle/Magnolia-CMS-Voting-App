@@ -40,6 +40,10 @@
     margin-bottom: 0;
 }
 
+.report_td {
+    padding: 10px 20px;
+}
+
 .thanks_message {
     text-align: center;
     font-size: 22px;

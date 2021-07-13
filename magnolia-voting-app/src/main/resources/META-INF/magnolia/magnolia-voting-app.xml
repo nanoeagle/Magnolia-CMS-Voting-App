@@ -5,4 +5,20 @@
   <displayName>${project.name}</displayName>
   <description>${project.description}</description>
   <version>${project.version}</version>
+
+  <components>
+    <id>main</id>
+    <component>
+      <type>com.example.votingapp.templatingfunctions.PollReportTemplatingFunctions</type>
+      <implementation>com.example.votingapp.templatingfunctions.PollReportTemplatingFunctions</implementation>
+      <scope>singleton</scope>
+    </component>
+  </components>
+
+  <dependencies>
+    <dependency>
+      <name>rendering</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+  </dependencies>
 </module>
