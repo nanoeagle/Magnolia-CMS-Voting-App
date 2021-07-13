@@ -87,6 +87,7 @@ subApps:
           rules:
             notDeleted: *notDeleted
       copyLink:
+        class: com.example.votingapp.browser.actions.CopyLinkActionDefinition
         icon: icon-copy
         availability:
           rules:
