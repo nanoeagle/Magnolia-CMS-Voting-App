@@ -92,6 +92,7 @@ subApps:
           rules:
             notDeleted: *notDeleted
       seeReport:
+        class: com.example.votingapp.browser.actions.SeeReportActionDefinition
         icon: icon-info
         availability:
           rules:
