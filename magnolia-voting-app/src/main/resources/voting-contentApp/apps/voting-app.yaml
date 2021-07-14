@@ -123,6 +123,7 @@ subApps:
     class: info.magnolia.ui.contentapp.detail.DetailDescriptor
     itemProvider:
       $type: jcrNodeFromLocationProvider
+      nodeType: poll
     datasource:
       <<: *datasource
       describeByProperty: jcrName

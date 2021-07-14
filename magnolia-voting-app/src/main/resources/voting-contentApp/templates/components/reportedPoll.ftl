@@ -29,9 +29,7 @@
             </div>
 
             <p class="total_vote">total vote
-                <span class="total_vote_number">
-               ${votesNumber}
-            </span>
+                <span class="total_vote_number">${votesNumber}</span>
             </p>
             <hr>
             [#if votesNumber > 0]
@@ -70,7 +68,7 @@
 
         [#else]
             <h1 class="page_notification">
-                ${i18n['voting-app.templates.pollReport.notification.notFound.label']}
+                ${i18n['voting-app.templates.voting.notification.unavailable.label']}
             </h1>
         [/#if]
     [#else]

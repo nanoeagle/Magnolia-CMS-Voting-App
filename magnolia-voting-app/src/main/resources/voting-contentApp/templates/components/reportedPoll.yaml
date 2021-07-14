@@ -1,0 +1,3 @@
+title: Reported Poll
+renderType: freemarker
+templateScript: voting-contentApp/templates/components/reportedPoll.ftl

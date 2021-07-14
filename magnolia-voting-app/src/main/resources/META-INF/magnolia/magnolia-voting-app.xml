@@ -21,4 +21,15 @@
       <version>${magnoliaVersion}/*</version>
     </dependency>
   </dependencies>
+
+  <servlets>
+    <servlet>
+      <name>PollSubmissionHandlerServlet</name>
+      <class>com.example.votingapp.controllers.PollSubmissionHandler</class>
+      <comment>Used to handle submitted data from the voting form.</comment>
+      <mappings>
+        <mapping>/voting/submit-poll</mapping>
+      </mappings>
+    </servlet>
+  </servlets>
 </module>

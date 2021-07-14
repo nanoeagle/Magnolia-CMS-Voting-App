@@ -1,10 +1,11 @@
-title: Poll Report Template
+title: Poll Report
 renderType: freemarker
+dialog: voting-contentApp:pages/pollReport
 templateScript: voting-contentApp/templates/pages/pollReport.ftl
 
 areas:
   main:
-    type: single
+    maxComponents: 1
     availableComponents:
-      pollData:
-        id: voting-contentApp:components/pollReport
+      reportedPoll:
+        id: voting-contentApp:components/reportedPoll

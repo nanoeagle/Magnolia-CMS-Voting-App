@@ -20,4 +20,4 @@
       'mgnl:createdBy': 'superuser'
       'mgnl:lastModified': 2021-07-13T17:35:15.788+07:00
       'mgnl:lastModifiedBy': 'superuser'
-      'mgnl:template': 'voting-contentApp:components/pollReport'
+      'mgnl:template': 'voting-contentApp:components/reportedPoll'

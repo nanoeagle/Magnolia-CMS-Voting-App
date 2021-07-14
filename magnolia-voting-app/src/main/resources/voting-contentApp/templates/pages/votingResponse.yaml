@@ -1,0 +1,11 @@
+title: Poll-submission Response
+renderType: freemarker
+dialog: voting-contentApp:pages/votingResponse
+templateScript: /voting-contentApp/templates/pages/votingResponse.ftl
+
+areas:
+  main:
+    maxComponents: 1
+    availableComponents:
+      submittedPoll:
+        id: voting-contentApp:components/submittedPoll

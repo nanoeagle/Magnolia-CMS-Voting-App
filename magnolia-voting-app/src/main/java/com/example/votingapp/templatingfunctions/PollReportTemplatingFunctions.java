@@ -26,7 +26,7 @@ public class PollReportTemplatingFunctions {
 
     Map<String, Integer> contentNodeMap = new HashMap<>();
     Map<String, Integer> answerNodeMap = new HashMap<>();
-    Map root = new HashMap<>();
+    Map<Integer, Map<String, Integer>> root;
 
     List<Node> questionList;
     List<Node> answerList;
@@ -43,6 +43,10 @@ public class PollReportTemplatingFunctions {
                     Node parentNode = session.getNode("/" + nodePath);
 
                     List<Node> childrenNodes = NodeUtil.asList(NodeUtil.collectAllChildren(parentNode));
+//                    List<Node> childrenNodes = NodeUtil.asList((Iterable<Node>) parentNode.getNodes());
+//                    List<Node> childrenNodes = NodeUtil.asList(NodeUtil.asIterable(parentNode.getNodes()));
+//                    List<Node> answerList = NodeUtil.asList(NodeUtil.asIterable(parentNode.getNodes()));
+
                     for (int i = 0; i < childrenNodes.size(); i++) {
                         Node questionNode = childrenNodes.get(i);
 
@@ -71,8 +75,26 @@ public class PollReportTemplatingFunctions {
         return null;
     }
 
+//    private void collectAllChildren(Node parentNode){
+//        List<Node> nodes = new ArrayList();
+//        return collectAllChildren(nodes, node, MAGNOLIA_FILTER);
+//    }
+//
+//    public static AbstractPredicate<Node> MAGNOLIA_FILTER = new AbstractPredicate<Node>() {
+//        public boolean evaluateTyped(Node node) {
+//            try {
+//                String nodeTypeName = node.getPrimaryNodeType().getName();
+//                return nodeTypeName.startsWith("mgnl:");
+//            } catch (RepositoryException var3) {
+//                NodeUtil.log.error("Unable to read nodeType for node {}", NodeUtil.getNodePathIfPossible(node));
+//                return false;
+//            }
+//        }
+//    };
+
+
     private void countQuestionAndAnswerNumberByIndex() throws RepositoryException {
-        root = new HashMap();
+        root = new HashMap<>();
         answerNodeMap = new HashMap<>();
         for (int k = 0; k < questionList.size(); k++) {
             int countOtherVote = 0;
@@ -83,7 +105,7 @@ public class PollReportTemplatingFunctions {
                     addToList(listAnswerByIndex, j, k);
                     contentNodeMap.put(SUM_ANSWERS_NUMBER + k + j, listAnswerByIndex.size());
                     answerNodeMap.put(getAnswerContent(answerList.get(j)), listAnswerByIndex.size());
-                } else {
+                } else if(isOtherAnswer(answerNode)){
                     addToList(listAnswerByIndex, j, k);
                     countOtherVote += listAnswerByIndex.size();
                 }
@@ -91,6 +113,16 @@ public class PollReportTemplatingFunctions {
             contentNodeMap.put(SUM_ANSWERS_NUMBER + k + "Other", countOtherVote);
             answerNodeMap.put("Other", countOtherVote);
             root.put(k, answerNodeMap);
+        }
+    }
+
+    private void addToList(List<Node> list, int j, int k) throws RepositoryException {
+        for (int i = 0; i < voterList.size(); i++) {
+            Node node = voterList.get(i);
+            String[] str = StringUtils.split(node.getPath(), "/");
+            if (str[4] != null && (str[4]).equals("answers" + j) && str[2] != null && (str[2]).equals("questions" + k)) {
+                list.add(node);
+            }
         }
     }
 
@@ -126,16 +158,6 @@ public class PollReportTemplatingFunctions {
         return false;
     }
 
-    private void addToList(List<Node> list, int j, int k) throws RepositoryException {
-        for (int i = 0; i < voterList.size(); i++) {
-            Node node = voterList.get(i);
-            String[] str = StringUtils.split(node.getPath(), "/");
-            if (str[4] != null && Integer.parseInt(str[4]) == j && str[2] != null && Integer.parseInt(str[2]) == k) {
-                list.add(node);
-            }
-        }
-    }
-
     private int getLevel(Node node) throws RepositoryException {
         String path = node.getPath();
         String[] str = StringUtils.split(path, "/");
@@ -167,7 +189,7 @@ public class PollReportTemplatingFunctions {
         return node.getProperty("answerVal").getValue().getString();
     }
 
-    public Map getNumberOfVoteForEachAnswer() {
+    public Map<Integer, Map<String, Integer>> getNumberOfVoteForEachAnswer() {
         return root;
     }
 }
