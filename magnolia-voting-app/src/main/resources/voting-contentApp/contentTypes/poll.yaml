@@ -35,7 +35,7 @@ model:
           type: Boolean
         
     answer:
-      nodeType: pollAnswer
+#      nodeType: pollAnswer
       properties:
         answerVal:
           required: true
@@ -46,7 +46,6 @@ model:
           multiple: true
     
     voter:
-      nodeType: pollVoter
       properties:
         fullName: 
           required: true

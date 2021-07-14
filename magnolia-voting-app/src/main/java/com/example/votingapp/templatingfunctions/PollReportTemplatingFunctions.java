@@ -83,14 +83,26 @@ public class PollReportTemplatingFunctions {
                     addToList(listAnswerByIndex, j, k);
                     contentNodeMap.put(SUM_ANSWERS_NUMBER + k + j, listAnswerByIndex.size());
                     answerNodeMap.put(getAnswerContent(answerList.get(j)), listAnswerByIndex.size());
-                } else {
+                } else if (isOtherAnswer(answerNode)) {
                     addToList(listAnswerByIndex, j, k);
                     countOtherVote += listAnswerByIndex.size();
                 }
             }
             contentNodeMap.put(SUM_ANSWERS_NUMBER + k + "Other", countOtherVote);
-            answerNodeMap.put("Other", countOtherVote);
+            if (countOtherVote > 0) {
+                answerNodeMap.put("Other", countOtherVote);
+            }
             root.put(k, answerNodeMap);
+        }
+    }
+
+    private void addToList(List<Node> list, int j, int k) throws RepositoryException {
+        for (int i = 0; i < voterList.size(); i++) {
+            Node node = voterList.get(i);
+            String[] str = StringUtils.split(node.getPath(), "/");
+            if (str[4] != null && (str[4]).equals("answers" + j) && str[2] != null && (str[2]).equals("questions" + k)) {
+                list.add(node);
+            }
         }
     }
 
@@ -124,16 +136,6 @@ public class PollReportTemplatingFunctions {
             return true;
         }
         return false;
-    }
-
-    private void addToList(List<Node> list, int j, int k) throws RepositoryException {
-        for (int i = 0; i < voterList.size(); i++) {
-            Node node = voterList.get(i);
-            String[] str = StringUtils.split(node.getPath(), "/");
-            if (str[4] != null && Integer.parseInt(str[4]) == j && str[2] != null && Integer.parseInt(str[2]) == k) {
-                list.add(node);
-            }
-        }
     }
 
     private int getLevel(Node node) throws RepositoryException {

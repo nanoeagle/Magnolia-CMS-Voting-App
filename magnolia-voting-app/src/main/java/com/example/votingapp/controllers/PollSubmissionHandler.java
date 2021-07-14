@@ -74,7 +74,7 @@ public class PollSubmissionHandler extends HttpServlet {
 
                     // Add the actual answer node.
                     Node answer = answerParentNode
-                        .addNode("answers" + generateNodeIndex(answerParentNode), "pollAnswer");
+                        .addNode("answers" + generateNodeIndex(answerParentNode), "mgnl:contentNode");
                 
                     // Add the answer node's properties.
                     answer.setProperty("answerVal", voterOwnAnswer);
@@ -103,7 +103,7 @@ public class PollSubmissionHandler extends HttpServlet {
         Node voterParentNode = answerNode.hasNode("voters") ? 
             answerNode.getNode("voters") : answerNode.addNode("voters", "mgnl:contentNode");
         // The actual voter node.
-        Node voter = voterParentNode.addNode("voters" + generateNodeIndex(voterParentNode), "pollVoter");
+        Node voter = voterParentNode.addNode("voters" + generateNodeIndex(voterParentNode), "mgnl:contentNode");
         
         voter.setProperty("fullName", voterName);
         // If the voter's email string is not empty.

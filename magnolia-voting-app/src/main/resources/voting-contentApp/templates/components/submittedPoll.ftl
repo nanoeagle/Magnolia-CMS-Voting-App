@@ -43,7 +43,7 @@
                 [#assign imagePath = image.link]
               [#else]
                 [#--  Default image.  --]
-                [#assign imagePath = ctx.contextPath+"/.resources/voting-contentApp/resources/image/default.jpg"]
+                [#assign imagePath = ctx.contextPath+"/.resources/voting-contentApp/webresources/image/default.jpg"]
               [/#if]
 
               <div class="banner">
